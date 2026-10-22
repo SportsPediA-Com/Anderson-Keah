@@ -6,8 +6,8 @@ author: Anderson Keah, Sr.
 email: akeah001@fiu.edu
 linkedin: https://linkedin.com/in/anderson-keah-sr-pmp
 # After you connect your domain, put it here, e.g. https://www.andersonkeah.com
-url: ""
-baseurl: "/Anderson-Keah"
+url: "https://www.andersonkeahsr.com"
+baseurl: ""
 
 # Show posts even when their date is in the future (e.g. an upcoming talk)
 future: true
