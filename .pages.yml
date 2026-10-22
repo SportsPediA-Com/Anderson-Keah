@@ -1,0 +1,79 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: posts
+    label: Activity posts
+    type: collection
+    path: _posts
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: kind
+        label: Category
+        type: select
+        required: true
+        default: Teaching
+        options:
+          values:
+            - value: Teaching
+              label: Teaching
+            - value: Paper
+              label: Paper / Publication
+            - value: Talk
+              label: Talk / Presentation
+            - value: Grant
+              label: Grant
+            - value: Service
+              label: Service
+            - value: News
+              label: News
+      - name: date
+        label: Date (used for ordering)
+        type: date
+        required: true
+      - name: date_label
+        label: Date shown (optional, e.g. "Forthcoming" or "Spring 2027")
+        type: string
+      - name: venue
+        label: Venue, journal, course or organization (optional)
+        type: string
+      - name: authors
+        label: Authors (papers and talks)
+        type: string
+      - name: link
+        label: Link (optional, e.g. a DOI)
+        type: string
+      - name: link_label
+        label: Link text (optional, e.g. "Read the paper")
+        type: string
+      - name: image
+        label: Photo (optional)
+        type: image
+      - name: image_alt
+        label: Photo description, for screen readers
+        type: string
+      - name: pdf
+        label: PDF attachment (optional, slides, poster, preprint)
+        type: file
+      - name: body
+        label: Description
+        type: rich-text
+
+  - name: profile
+    label: Photo & CV
+    type: file
+    path: _data/profile.yml
+    fields:
+      - name: headshot
+        label: Headshot
+        type: image
+      - name: cv
+        label: CV (PDF)
+        type: file
