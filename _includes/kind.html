@@ -1,0 +1,1 @@
+{% case include.k %}{% when "Talk" %}Talk / Presentation{% when "Paper" %}Paper{% else %}{{ include.k | escape }}{% endcase %}

@@ -1,0 +1,165 @@
+---
+layout: default
+---
+{% assign hs = site.data.profile.headshot | default: "" | strip %}
+{% assign cv = site.data.profile.cv | default: "" | strip %}
+<div class="wrap hero" id="top">
+<div>
+<p class="kicker">PhD Student · Engineering &amp; Computing Education · FIU</p>
+<h1>Opening the road from technician to engineer.</h1>
+<p class="lede">I study technician-to-engineer pathways and Credit for Prior Learning in engineering education, with an emphasis on equity, institutional policy, and workforce-aligned curriculum design. I bring a machinist's training, a mining engineer's degree, and six years of TVET teaching and program leadership in Liberia to that work.</p>
+<div class="btns">
+<a class="btn solid" href="mailto:{{ site.email }}">Email me</a>
+<a class="btn" href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+{% if cv != "" %}<a class="btn" href="{{ cv | relative_url }}" download>Download CV</a>{% endif %}
+</div>
+</div>
+<div>
+<div class="photo">{% if hs != "" %}<img src="{{ hs | relative_url }}" alt="Portrait of Anderson Keah, Sr.">{% else %}<span class="monogram" aria-hidden="true">AK</span>{% endif %}</div>
+<p class="caption mono">Graduate Research Assistant, Florida International University, Miami</p>
+</div>
+</div>
+
+<div class="creds"><div class="wrap mono">
+<span>PMP®, Project Management Institute</span>
+<span>PMI Authorized Training Partner Instructor</span>
+<span>Reviewer, ASEE ERM Division</span>
+<span>VP for Membership, PMI Liberia Chapter</span>
+</div></div>
+
+<section id="about">
+<div class="wrap g2">
+<h2>About</h2>
+<div class="prose">
+<p>I am a doctoral researcher in Engineering and Computing Education, Systems, and Management at Florida International University, where I work as a Graduate Research Assistant on engineering education research and grant development. My current work compares Credit for Prior Learning policies across ABET-accredited engineering programs to understand how institutions recognize what working technicians already know.</p>
+<p>Before FIU, I spent six years teaching and leading programs in Liberia. I taught physics, algebra, geometry, and STEM foundations to technical and vocational learners, delivered competency-based machining instruction, coordinated a donor-funded EpiC/PEPFAR program, and led monitoring and evaluation for education and workforce initiatives.</p>
+<p>That experience shapes the questions I ask: who gets counted as an engineer, which skills earn academic credit, and how policy can widen the door for women, technicians, and other nontraditional learners.</p>
+</div>
+</div>
+</section>
+
+<section id="activity" class="tint">
+<div class="wrap">
+<div class="feed-head"><div><p class="kicker">Latest</p><h2>Activity</h2></div></div>
+<div class="chips" role="group" aria-label="Filter activity">
+<button class="chip" type="button" data-filter="All" aria-pressed="true">All</button>
+<button class="chip" type="button" data-filter="Teaching" aria-pressed="false">Teaching</button>
+<button class="chip" type="button" data-filter="Paper" aria-pressed="false">Papers</button>
+<button class="chip" type="button" data-filter="Talk" aria-pressed="false">Talks</button>
+<button class="chip" type="button" data-filter="Grant" aria-pressed="false">Grants</button>
+<button class="chip" type="button" data-filter="Service" aria-pressed="false">Service</button>
+<button class="chip" type="button" data-filter="News" aria-pressed="false">News</button>
+</div>
+<div class="feed" id="feed">
+{% for p in site.posts %}
+{% assign img = p.image | default: "" | strip %}
+{% capture summary %}{{ p.content }}{{ p.body }}{% endcapture %}
+<article class="post" data-kind="{{ p.kind | escape }}">
+{% if img != "" %}<a class="pimg" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ img | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+<div class="pbody">
+<div class="meta">{% include kind.html k=p.kind %} · {% include when.html p=p %}</div>
+<h3><a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></h3>
+{% if p.venue and p.venue != "" %}<p class="venue">{{ p.venue | escape }}</p>{% endif %}
+{% assign s = summary | strip_html | strip %}{% if s != "" %}<p class="ptext">{{ s | truncatewords: 32 }}</p>{% endif %}
+{% include links.html p=p %}
+</div>
+</article>
+{% endfor %}
+</div>
+<p class="empty" id="feed-empty" hidden>Nothing posted in this category yet.</p>
+<div class="more"><button class="btn" type="button" id="feed-more" hidden>Show all</button></div>
+</div>
+</section>
+
+<section class="dark" aria-labelledby="path-h">
+<div class="wrap">
+<p class="kicker">My own pathway</p>
+<h2 id="path-h" class="path-h">Degree, workshop, classroom, research: I have crossed the line I now study.</h2>
+<ol class="path">
+<li><div class="yr">2018</div><div class="t">BSc, Mining Engineering</div><div class="s">University of Liberia</div></li>
+<li><div class="yr">2022</div><div class="t">Craft Certificate, Machining</div><div class="s">Mopani Central Training Center, Zambia</div></li>
+<li><div class="yr">2023</div><div class="t">MBA, Project Management</div><div class="s">University of Zambia</div></li>
+<li><div class="yr">2024</div><div class="t">Advanced TVET Teacher Training</div><div class="s">Booker Washington Institute, Liberia</div></li>
+<li><div class="yr">Now</div><div class="t">PhD, Engineering &amp; Computing Education</div><div class="s">Florida International University</div></li>
+</ol>
+</div>
+</section>
+
+<section id="research">
+<div class="wrap g2">
+<div><h2>Research</h2><p class="side-note">Comparative policy analysis, mixed methods, and qualitative document analysis.</p></div>
+<div class="stack">
+<div class="cards">
+<div class="card"><div class="mono num">01</div><h3>Technician-to-engineer mobility</h3><p>How technicians and TVET graduates move into engineering degrees, and where those pathways break down.</p></div>
+<div class="card"><div class="mono num">02</div><h3>Credit for Prior Learning</h3><p>CPL and Prior Learning Assessment policy across ABET-accredited engineering programs.</p></div>
+<div class="card"><div class="mono num">03</div><h3>Equity and access</h3><p>Policy and participation in engineering education for women and underserved groups.</p></div>
+<div class="card"><div class="mono num">04</div><h3>Workforce and technical training</h3><p>Workforce development and TVET systems, from Liberia to the United States.</p></div>
+</div>
+<div class="block"><h3>Grant development</h3><p>I have contributed to three National Science Foundation proposals on engineering pathways for technicians and other nontraditional learners, including NSF ATE work, writing literature syntheses and background sections and supporting research design.</p></div>
+<div class="block"><h3>Methods and tools</h3><p class="mono tools">CPL/PLA policy analysis · Qualitative coding · Cross-case synthesis · Mixed-methods design · Survey design · Research synthesis · SPSS · Microsoft Excel · MS Project · Asana</p></div>
+</div>
+</div>
+</section>
+
+<section id="publications" class="white">
+<div class="wrap g2">
+<h2>Publications &amp; presentations</h2>
+<ol class="pubs">
+{% for p in site.posts %}{% if p.kind == "Paper" or p.kind == "Talk" %}
+<li>
+<div class="meta">{% include when.html p=p %} · {% include kind.html k=p.kind %}</div>
+<p class="cite">{% if p.authors and p.authors != "" %}{{ p.authors | escape }} ({% include when.html p=p %}). {% endif %}<a class="cite-title" href="{{ p.url | relative_url }}">{{ p.title | escape }}.</a>{% if p.venue and p.venue != "" %} {{ p.venue | escape }}{% endif %}</p>
+{% include links.html p=p %}
+</li>
+{% endif %}{% endfor %}
+</ol>
+</div>
+</section>
+
+<section id="teaching">
+<div class="wrap g2">
+<div><h2>Teaching</h2><p class="side-note">Project-based learning, project management, and STEM foundations for technical learners.</p></div>
+<div class="rows">
+<div class="row"><div class="when">Present</div><div><h3>Teaching Assistant, Interdisciplinary Engineering Design</h3><p class="org">Florida International University · Miami, FL</p><p class="d">I guide first-year student teams through problem scoping, stakeholder analysis, design requirements, criteria and constraints, and team roles. I give formative feedback, assess work against course rubrics, and support rubric development for consistent grading.</p></div></div>
+<div class="row"><div class="when">2019 – 2024</div><div><h3>Instructor</h3><p class="org">Monrovia College of Industrial &amp; Vocational Institute · Liberia</p><p class="d">Taught Physics, Algebra, Geometry, and STEM foundations to technical and vocational learners, improving learner outcomes through structured, practice-oriented instruction.</p></div></div>
+<div class="row"><div class="when">2023 – 2025</div><div><h3>TVET Trainer</h3><p class="org">Monrovia Vocational Training Center · Liberia</p><p class="d">Delivered competency-based machining and STEM instruction in applied technical learning environments.</p></div></div>
+<div class="row"><div class="when">Ongoing</div><div><h3>PMI Authorized Training Partner Instructor</h3><p class="org">Project Management Institute</p><p class="d">Professional project management training, backed by graduate Teaching and Learning coursework completed at FIU.</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="experience" class="tint">
+<div class="wrap g2">
+<h2>Program leadership</h2>
+<div class="rows">
+<div class="row"><div class="when">2025 – Present</div><div><h3>Graduate Research Assistant</h3><p class="org">Florida International University</p><p class="d">Comparative CPL policy analysis across ABET-accredited programs; coding frameworks, cross-case matrices, and research syntheses; NSF proposal development and research briefs with faculty and research partners.</p></div></div>
+<div class="row"><div class="when">2024 – 2025</div><div><h3>Program Coordinator</h3><p class="org">Lutheran Church in Liberia · EpiC/PEPFAR</p><p class="d">Coordinated program implementation, reporting, and stakeholder engagement, and led proposal development for donor-funded initiatives.</p></div></div>
+<div class="row"><div class="when">2023 – 2024</div><div><h3>Program and MEAL Officer</h3><p class="org">Rural Integrated Center for Community Empowerment · Liberia</p><p class="d">Led monitoring and evaluation for education and workforce programs; built data-collection tools and produced analytical reports for stakeholders.</p></div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="edu-h">
+<div class="wrap g2">
+<h2 id="edu-h">Education, credentials &amp; service</h2>
+<div class="g3">
+<div><h3>Education</h3><ul>
+<li><strong>PhD, Engineering &amp; Computing Education</strong><br>Florida International University, in progress</li>
+<li><strong>Graduate coursework, Environmental Engineering</strong><br>Florida International University, ongoing</li>
+<li><strong>MBA, Project Management</strong><br>University of Zambia, 2023</li>
+<li><strong>BSc, Mining Engineering</strong><br>University of Liberia, 2018</li>
+</ul></div>
+<div><h3>Credentials</h3><ul>
+<li><strong>Project Management Professional (PMP®)</strong><br>Project Management Institute</li>
+<li><strong>PMI ATP Instructor</strong><br>Project Management Institute</li>
+<li><strong>Google Project Management Professional Certificate</strong><br>Coursera</li>
+<li><strong>Craft Certificate, Machining</strong><br>Mopani Central Training Center, 2022</li>
+<li><strong>Advanced TVET Teacher Training</strong><br>Booker Washington Institute, 2024</li>
+</ul></div>
+<div><h3>Service</h3><ul>
+<li><strong>Reviewer</strong><br>ASEE Educational Research and Methods Division, 2025 – present</li>
+<li><strong>Vice President for Membership</strong><br>PMI Liberia Chapter</li>
+</ul></div>
+</div>
+</div>
+</section>

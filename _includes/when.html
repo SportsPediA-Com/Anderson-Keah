@@ -1,0 +1,1 @@
+{% assign dl = include.p.date_label | default: "" | strip %}{% if dl != "" %}{{ dl | escape }}{% else %}{{ include.p.date | date: "%b %Y" }}{% endif %}

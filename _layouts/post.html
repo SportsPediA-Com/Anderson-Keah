@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% assign img = page.image | default: "" | strip %}
+<article class="single">
+<div class="wrap narrow">
+<p><a class="back" href="{{ '/#activity' | relative_url }}">← All activity</a></p>
+<div class="meta">{% include kind.html k=page.kind %} · {% include when.html p=page %}</div>
+<h1>{{ page.title | escape }}</h1>
+{% if page.authors and page.authors != "" %}<p class="venue">{{ page.authors | escape }}</p>{% endif %}
+{% if page.venue and page.venue != "" %}<p class="venue">{{ page.venue | escape }}</p>{% endif %}
+{% if img != "" %}<img class="hero-img" src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
+<div class="ptext big">{{ content }}{{ page.body }}</div>
+{% include links.html p=page %}
+</div>
+</article>

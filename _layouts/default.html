@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+<div class="wrap nav">
+<a class="brand" href="{{ '/' | relative_url }}">Anderson Keah, Sr.</a>
+<nav class="navlinks" aria-label="Main">
+<a href="{{ '/#about' | relative_url }}">About</a>
+<a href="{{ '/#activity' | relative_url }}">Activity</a>
+<a href="{{ '/#research' | relative_url }}">Research</a>
+<a href="{{ '/#publications' | relative_url }}">Publications</a>
+<a href="{{ '/#teaching' | relative_url }}">Teaching</a>
+<a href="{{ '/#contact' | relative_url }}">Contact</a>
+</nav>
+</div>
+</header>
+<main id="main">
+{{ content }}
+</main>
+<footer id="contact" class="dark">
+<div class="wrap">
+<p class="kicker">Contact</p>
+<h2>Working on pathways, prior learning, or TVET? Let's talk.</h2>
+<div class="btns" style="margin-top:40px">
+<a class="btn solid" href="mailto:{{ site.email }}">{{ site.email }}</a>
+<a class="btn" href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/anderson-keah-sr-pmp</a>
+</div>
+<div class="foot">
+<span>© {{ site.time | date: "%Y" }} Anderson Keah, Sr.</span>
+<span>Engineering &amp; Computing Education · Florida International University · Miami, FL</span>
+</div>
+</div>
+</footer>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>
