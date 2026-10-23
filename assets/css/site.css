@@ -105,4 +105,4 @@ footer .btn.solid{background:var(--mint);border-color:var(--mint);color:var(--in
 header.top{position:static}
 footer h2,.single h1{font-size:36px}
 }
-   [hidden]{display:none !important}
+   header.top{position:static}
